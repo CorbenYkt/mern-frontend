@@ -21,7 +21,7 @@ export const Login = () => {
   const onSubmit = async (values) => {
     const result = await dispatch(fetchAuth(values));
     if (!result.payload) {
-      setErrorMessage("Login failed. Please check your credentials."); // Устанавливаем сообщение об ошибке
+      setErrorMessage("Login failed. Please check your credentials.");
     } else if ('token' in result.payload) {
       window.localStorage.setItem('token', result.payload.token);
     }
