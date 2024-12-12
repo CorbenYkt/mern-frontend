@@ -50,12 +50,13 @@ export const Post = ({
                     alt={title}
                 />
             )} */}
-            {imageUrl && (
+            {isFullPost && imageUrl && (
                 <img
                     src={imageUrl}
                     alt={title}
                 />
             )}
+            <br></br>
             <UserInfo {...user} additionalText={format(new Date(createdAt), 'hh:mm a, dd MMM yyyy')} />
             <div className="text-left">
                 <h2 className="text-2xl font-bold">

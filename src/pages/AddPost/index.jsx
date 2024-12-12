@@ -110,7 +110,7 @@ export const AddPost = () => {
             >
               Delete
             </button>
-            <img className="mt-2 w-full rounded-lg" src={window.location.origin + `${imageUrl}`} alt="Uploaded" />
+            <img className="mt-2 w-full rounded-lg" src={'https://mern.corbenykt.ru' + `${imageUrl}`} alt="Uploaded" />
           </div>
         )
       }

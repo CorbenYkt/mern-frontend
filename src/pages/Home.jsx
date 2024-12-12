@@ -6,7 +6,7 @@ import { PostSkeleton } from '../components/post/Skeleton';
 
 export const Home = () => {
     const dispatch = useDispatch();
-    // const userData = useSelector((state) => state.auth.data);
+    const userData = useSelector((state) => state.auth.data);
     const { posts } = useSelector((state) => state.posts);
 
     const isPostLoading = posts.status === 'loading';
@@ -33,7 +33,7 @@ export const Home = () => {
                             key={obj._id}
                             id={obj._id}
                             title={obj.title}
-                            imageUrl={obj.imageUrl ? `${window.location.origin}${obj.imageUrl}` : ''}
+                            imageUrl={obj.imageUrl ? `${'https://mern.corbenykt.ru' + obj.imageUrl}` : ''}
                             user={obj.user}
                             createdAt={obj.createdAt}
                             viewsCount={obj.viewsCount}
