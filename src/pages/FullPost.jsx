@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from '../axios';
 import ReactMarkdown from "react-markdown";
 import { PostSkeleton } from '../components/post/Skeleton';
+import { CommentsBlock } from "../components/CommentsBlock";
 
 export const FullPost = () => {
   const [data, setData] = React.useState();
@@ -38,7 +39,12 @@ export const FullPost = () => {
         isFullPost
       >
       </Post>
-      <ReactMarkdown children={data.text} />
+      <div className="my-6">
+        <ReactMarkdown className="prose prose-sm dark:prose-invert" children={data.text} />
+      </div>
+
+      <div className="my-6 border-t border-gray-300 dark:border-gray-600"></div>
+      <CommentsBlock postId={data._id} />
     </>
   );
 };
