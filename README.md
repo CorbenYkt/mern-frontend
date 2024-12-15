@@ -22,7 +22,8 @@ Mongoose: ODM for interacting with MongoDB.
 JWT: Token-based authentication.
 Multer: For image uploads.
 
-Links:
+## Links:
+
 Website: https://corbenykt.github.io/mern-frontend
 
 Backend(this): https://github.com/CorbenYkt/mern-backend
