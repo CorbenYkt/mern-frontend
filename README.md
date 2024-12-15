@@ -23,6 +23,8 @@ JWT: Token-based authentication.
 Multer: For image uploads.
 
 Links:
-Website: https://corbenykt.github.io/mern-frontend/
+Website: https://corbenykt.github.io/mern-frontend
+
 Backend(this): https://github.com/CorbenYkt/mern-backend
+
 Frontend: https://github.com/CorbenYkt/mern-frontendend
