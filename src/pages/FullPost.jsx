@@ -35,14 +35,11 @@ export const FullPost = () => {
         user={data.user}
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}
-        commentsCount={3}
+        commentsCount={data.commentsCount}
         isFullPost
       >
       </Post>
-      <div className="my-6">
-        <ReactMarkdown className="prose prose-sm dark:prose-invert" children={data.text} />
-      </div>
-
+      <ReactMarkdown className="prose prose-p: dark:prose-invert text-justify max-w-none" children={data.text} />
       <div className="my-6 border-t border-gray-300 dark:border-gray-600"></div>
       <CommentsBlock postId={data._id} />
     </>

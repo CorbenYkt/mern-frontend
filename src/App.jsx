@@ -6,6 +6,8 @@ import { FullPost } from './pages/FullPost';
 import { Login } from './pages/Login';
 import { Registration } from './pages/Registration';
 import { AddPost } from './pages/AddPost';
+import { Footer } from './components/footer';
+
 function App() {
 
   return (
@@ -26,9 +28,9 @@ function App() {
             </Routes>
           </div>
         </main>
-        <footer className="text-white p-4 text-center">
-          Footer content here
-        </footer>
+        <div className="flex-none">
+          <Footer></Footer>
+        </div>
       </div>
     </>
   )

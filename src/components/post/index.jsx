@@ -20,8 +20,6 @@ export const Post = ({
     isLoading,
 }) => {
     const dispatch = useDispatch();
-
-    // Получаем данные пользователя из Redux
     const currentUser = useSelector((state) => state.auth.data);
 
     if (isLoading) {
@@ -32,10 +30,9 @@ export const Post = ({
         dispatch(fetchRemovePost(id));
     };
 
-    const isAuthor = currentUser?._id === user._id; // Проверяем, является ли текущий пользователь автором поста
+    const isAuthor = currentUser?._id === user._id;
     return (
         <div className="mb-4">
-
             {isFullPost && imageUrl && (
                 <img
                     src={imageUrl}
@@ -44,39 +41,42 @@ export const Post = ({
             )}
             <br />
             <ul className="flex justify-start space-x-4 mt-2">
-                <li className="flex items-center space-x-2 text-gray-500">
+                <li className="flex items-center text-gray-500">
                     <UserInfo {...user} additionalText={format(new Date(createdAt), 'hh:mm a, dd MMM yyyy')} />
                 </li>
-                <li className="flex items-center space-x-2 text-gray-500">
-                    <FaRegEye />
-                    <span>{viewsCount}</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-500">
-                    <FaComments />
-                    <span>{commentsCount}</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-500">
-                    {isAuthor && (
-                        <div className="flex space-x-2 mb-2">
-                            <Link to={`/posts/${id}/edit`} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
-                                Edit
-                            </Link>
-                            <button
-                                onClick={onClickRemove}
-                                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                            >
-                                Delete
-                            </button>
-                        </div>
-                    )}
 
-                </li>
             </ul>
 
             <div className="text-left">
                 <h2 className="text-2xl font-bold">
                     {isFullPost ? title : <Link to={`/posts/${id}`}>{title}</Link>}
                 </h2>
+                <ul className="flex justify-start space-x-2 mt-2">
+                    <li className="flex items-center space-x-2 text-gray-500">
+                        <FaRegEye />
+                        <span>{viewsCount}</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-gray-500">
+                        <FaComments />
+                        <span>{commentsCount}</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-gray-500">
+                        {isAuthor && (
+                            <div className="flex space-x-2 mb-2">
+                                <Link to={`/posts/${id}/edit`} className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                                    Edit
+                                </Link>
+                                <button
+                                    onClick={onClickRemove}
+                                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        )}
+
+                    </li>
+                </ul>
             </div>
         </div>
     );

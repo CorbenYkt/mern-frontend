@@ -3,7 +3,7 @@ import { FaClock } from "react-icons/fa6";
 
 export const UserInfo = ({ avatar, fullName, additionalText }) => {
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center space-x-2">
       <img
         src={avatar}
         alt={fullName}
@@ -11,7 +11,7 @@ export const UserInfo = ({ avatar, fullName, additionalText }) => {
       />
       <div className="flex items-center space-x-2 text-gray-500 text-sm">
         <span>{fullName}</span>
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-2">
           <FaClock />
           <span>{additionalText}</span>
         </div>
