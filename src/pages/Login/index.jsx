@@ -24,6 +24,7 @@ export const Login = () => {
       setErrorMessage("Login failed. Please check your credentials.");
     } else if ('token' in result.payload) {
       window.localStorage.setItem('token', result.payload.token);
+      window.localStorage.setItem('authData', JSON.stringify(result.payload));
     }
   };
 

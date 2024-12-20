@@ -29,7 +29,7 @@ export const fetchRegister = createAsyncThunk(
 
 
 const initialState = {
-    data: null,
+    data: JSON.parse(window.localStorage.getItem('authData')) || null,
     status: 'loading',
     error: null,
 };
@@ -42,6 +42,7 @@ const authSlice = createSlice({
             state.data = null;
             state.status = 'loaded';
             state.error = null;
+            window.localStorage.removeItem('authData');
         },
     },
     extraReducers: (builder) => {
@@ -55,6 +56,7 @@ const authSlice = createSlice({
                 state.status = 'loaded';
                 state.data = action.payload;
                 state.error = null;
+                window.localStorage.setItem('authData', JSON.stringify(action.payload));
             })
             .addCase(fetchAuth.rejected, (state) => {
                 state.status = 'error';
@@ -70,6 +72,7 @@ const authSlice = createSlice({
                 state.status = 'loaded';
                 state.data = action.payload;
                 state.error = null;
+                window.localStorage.setItem('authData', JSON.stringify(action.payload));
             })
             .addCase(fetchAuthMe.rejected, (state) => {
                 state.status = 'error';
@@ -85,6 +88,7 @@ const authSlice = createSlice({
                 state.status = 'loaded';
                 state.data = action.payload;
                 state.error = null;
+                window.localStorage.setItem('authData', JSON.stringify(action.payload));
             })
             .addCase(fetchRegister.rejected, (state, action) => {
                 state.status = 'error';
