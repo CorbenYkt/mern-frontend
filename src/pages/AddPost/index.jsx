@@ -13,6 +13,7 @@ export const AddPost = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [text, setText] = React.useState('');
   const [title, setTitle] = React.useState('');
+  const [tags, setTags] = React.useState('');
   const [imageUrl, setImageUrl] = React.useState('');
   const navigate = useNavigate();
   const inputFileRef = React.useRef(null);
@@ -43,6 +44,7 @@ export const AddPost = () => {
       axios.get(`/posts/${id}`).then(({ data }) => {
         setTitle(data.title);
         setText(data.text);
+        setTags(data.tags.join(', '));
         setImageUrl(data.imageUrl);
       })
         .catch((err) => {
@@ -72,7 +74,8 @@ export const AddPost = () => {
       const fields = {
         title,
         imageUrl,
-        text
+        text,
+        tags: tags.split(',').map(tag => tag.trim()),
       };
 
       const { data } = isEditing
@@ -121,6 +124,14 @@ export const AddPost = () => {
         value={title}
         onChange={(e) => { setTitle(e.target.value) }}
         className="w-full p-3 mt-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <input
+        type="text"
+        placeholder="Tags (comma separated)..."
+        value={tags}
+        onChange={(e) => setTags(e.target.value)}
+        className="w-full p-3 mt-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        disabled={isLoading}
       />
       <SimpleMDE
         className="mt-4 w-full max-w-full text-left"

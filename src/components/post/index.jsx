@@ -74,7 +74,6 @@ export const Post = ({
                                 </button>
                             </div>
                         )}
-
                     </li>
                 </ul>
             </div>

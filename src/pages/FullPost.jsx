@@ -40,6 +40,23 @@ export const FullPost = () => {
       >
       </Post>
       <ReactMarkdown className="prose prose-p: dark:prose-invert text-justify max-w-none" children={data.text} />
+
+      {data.tags && data.tags.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-lg font-semibold mb-2">Tags:</h3>
+          <div className="flex flex-wrap gap-2">
+            {data.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="my-6 border-t border-gray-300 dark:border-gray-600"></div>
       <CommentsBlock postId={data._id} />
     </>
