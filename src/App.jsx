@@ -13,9 +13,9 @@ function App() {
   return (
     <>
       <div className="flex flex-col min-h-screen w-full max-w-full">
-        <div className="flex-none">
+        <header className="flex-none">
           <Header />
-        </div>
+        </header>
         <main className="flex-grow p-6">
           <div className="max-w-3xl mx-auto text-left">
             <Routes>
@@ -28,9 +28,9 @@ function App() {
             </Routes>
           </div>
         </main>
-        <div className="flex-none">
+        <footer className="flex-none">
           <Footer></Footer>
-        </div>
+        </footer>
       </div>
     </>
   )
